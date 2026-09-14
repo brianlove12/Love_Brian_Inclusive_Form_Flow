@@ -2,60 +2,220 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Field Inventory</title>
+
         <style>
-        body{
-            font-family:Arial,sans-serif;
-            line-height:1.5;
-            max-width:80rem;
-            margin:auto;
-            padding:1rem;
-            color:#191919;
-        }
-        table{
-            width:100%;
-            border-collapse:collapse;
-        }
-        th,td{
-            padding:.6rem;
-            border:1px solid #999;
-            text-align:left;
-            vertical-align:top;
-        }
-        th{
-            background:#f1f1f1;
-        }
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.5;
+                max-width: 80rem;
+                margin: auto;
+                padding: 1rem;
+                color: #191919;
+            }
+
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            th,
+            td {
+                padding: 0.6rem;
+                border: 1px solid #999;
+                text-align: left;
+                vertical-align: top;
+            }
+
+            th {
+                background: #f1f1f1;
+            }
         </style>
-        </head>
-        <body>
-            <h1>F2 · Task and Data Plan</h1>
-            <p>Duplicate rows as needed. Justify every collected value.</p>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Visible label / question</th>
-                        <th>Why necessary now?</th>
-                        <th>Required?</th>
-                        <th>Native control/type</th>
-                        <th>Submitted name/value</th>
-                        <th>Autocomplete/inputmode</th>
-                        <th>Constraint/instruction</th>
-                        <th>Sensitivity and minimization decision</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Example only</td>
-                        <td>Replace</td>
-                        <td>Yes/No</td>
-                        <td>Replace</td>
-                        <td>Replace</td>
-                        <td>Replace or N/A</td>
-                        <td>Replace or none</td>
-                        <td>Replace</td>
-                    </tr>
-                </tbody>
-            </table>
-        </body>
-        </html>
+    </head>
+
+    <body>
+        <h1>F2 · Task and Data Plan</h1>
+
+        <p>
+            This inventory documents each value collected by the fictional
+            Telepathic Race "Gathering" registration form and explains why it is
+            necessary, how it is submitted, and how unnecessary or sensitive
+            data collection is minimized.
+        </p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Visible label / question</th>
+                    <th>Why necessary now?</th>
+                    <th>Required?</th>
+                    <th>Native control/type</th>
+                    <th>Submitted name/value</th>
+                    <th>Autocomplete/inputmode</th>
+                    <th>Constraint/instruction</th>
+                    <th>Sensitivity and minimization decision</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>Full name</td>
+                    <td>
+                        Identifies the person registering for the workshop.
+                    </td>
+                    <td>Required</td>
+                    <td><code>input type="text"</code></td>
+                    <td><code>name="full_name"</code></td>
+                    <td><code>autocomplete="name"</code></td>
+                    <td><code>required</code></td>
+                    <td>
+                        Basic identifying information.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email address</td>
+                    <td>
+                        Provides the primary way to send workshop confirmation
+                        and participation information.
+                    </td>
+                    <td>Required</td>
+                    <td><code>input type="email"</code></td>
+                    <td><code>name="email"</code></td>
+                    <td><code>autocomplete="email"</code></td>
+                    <td>
+                        <code>required</code>; native email validation.
+                    </td>
+                    <td>
+                        Personal contact information.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Phone number</td>
+                    <td>
+                        Provides an optional way to receive time-sensitive
+                        workshop updates or schedule changes.
+                    </td>
+                    <td>Optional</td>
+                    <td><code>input type="tel"</code></td>
+                    <td><code>name="phone"</code></td>
+                    <td><code>autocomplete="tel"</code></td>
+                    <td>None</td>
+                    <td>
+                        Personal contact information. Kept optional to minimize
+                        unnecessary collection.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Workshop session/date</td>
+                    <td>
+                        Identifies which available workshop session the attendee
+                        wants to attend.
+                    </td>
+                    <td>Required</td>
+                    <td><code>select</code></td>
+                    <td><code>name="workshop_session"</code></td>
+                    <td>N/A</td>
+                    <td><code>required</code></td>
+                    <td>
+                        Low sensitivity.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Attendance method</td>
+                    <td>
+                        Identifies whether the attendee plans to participate in
+                        person or virtually.
+                    </td>
+                    <td>Required</td>
+                    <td>Radio group</td>
+                    <td><code>name="attendance_method"</code></td>
+                    <td>N/A</td>
+                    <td>One option required.</td>
+                    <td>
+                        Low sensitivity.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Accessibility/accommodation request</td>
+                    <td>
+                        Allows an attendee to request support that would help
+                        them participate in the workshop.
+                    </td>
+                    <td>Optional</td>
+                    <td><code>textarea</code></td>
+                    <td><code>name="accommodation_request"</code></td>
+                    <td>N/A</td>
+                    <td>
+                        <code>maxlength="300"</code>; do not include medical
+                        diagnoses or private health information.
+                    </td>
+                    <td>
+                        Potentially sensitive. The field is optional and asks
+                        only for support needs, not diagnoses.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Workshop policies/terms agreement</td>
+                    <td>
+                        Confirms that the attendee agrees to follow the workshop
+                        participation guidelines.
+                    </td>
+                    <td>Required</td>
+                    <td><code>input type="checkbox"</code></td>
+                    <td>
+                        <code>name="agree_terms" value="yes"</code>
+                    </td>
+                    <td>N/A</td>
+                    <td><code>required</code></td>
+                    <td>
+                        No significant sensitivity.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Book familiarity</td>
+                    <td>
+                        Helps the workshop presenter understand whether the
+                        attendee is already familiar with the workshop material.
+                    </td>
+                    <td>Optional</td>
+                    <td>Radio group</td>
+                    <td><code>name="read_book"</code></td>
+                    <td>N/A</td>
+                    <td>None</td>
+                    <td>
+                        No significant sensitivity.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Number of attendees</td>
+                    <td>
+                        Indicates how many workshop seats are being requested
+                        for the registrant and accompanying guests.
+                    </td>
+                    <td>Required</td>
+                    <td><code>input type="number"</code></td>
+                    <td><code>name="attendee_count"</code></td>
+                    <td>N/A</td>
+                    <td>
+                        <code>required</code>,
+                        <code>min="1"</code>,
+                        <code>max="4"</code>,
+                        <code>step="1"</code>
+                    </td>
+                    <td>
+                        No significant sensitivity.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -303,44 +303,207 @@
                 <h2>F5 · State and Recovery Specimen</h2>
 
                 <p>
-                    Document default, focus, required, valid, invalid, disabled,
-                    and a static server-returned error. Keep this section separate
-                    from the primary blank form when necessary to avoid misleading
-                    users.
+                    The examples below document how the form communicates common
+                    control states and recovery information. These specimens are
+                    separate from the primary registration form so they do not
+                    represent an active submission.
                 </p>
 
-                <div class="error-summary">
-                    <h3>There is a problem with the fictional submission</h3>
+                <div class="state-grid">
+                    <div class="state-example">
+                        <h3>Default state</h3>
 
-                    <p>
-                        <a href="#error-example">
-                            Email address needs attention
-                        </a>
-                    </p>
+                        <div class="field">
+                            <label for="state-default">
+                                Full name
+                            </label>
+
+                            <input
+                                id="state-default"
+                                type="text"
+                                value=""
+                            >
+                        </div>
+
+                        <p class="state-note">
+                            A standard empty control before interaction.
+                        </p>
+                    </div>
+
+                    <div class="state-example">
+                        <h3>Focus state</h3>
+
+                        <div class="field">
+                            <label for="state-focus">
+                                Email address
+                            </label>
+
+                            <input
+                                id="state-focus"
+                                class="focus-example"
+                                type="email"
+                                value=""
+                            >
+                        </div>
+
+                        <p class="state-note">
+                            The visible focus treatment shows which control currently
+                            receives keyboard input.
+                        </p>
+                    </div>
+
+                    <div class="state-example">
+                        <h3>Required state</h3>
+
+                        <div class="field">
+                            <label for="state-required">
+                                Workshop session (required)
+                            </label>
+
+                            <select
+                                id="state-required"
+                                required
+                            >
+                                <option value="">
+                                    Select a workshop session
+                                </option>
+
+                                <option value="example-session">
+                                    Example workshop session
+                                </option>
+                            </select>
+                        </div>
+
+                        <p class="state-note">
+                            The label identifies the field as required. In the
+                            primary form, the native required constraint prevents
+                            an empty submission.
+                        </p>
+                    </div>
+
+                    <div class="state-example state-valid">
+                        <h3>Valid state</h3>
+
+                        <div class="field">
+                            <label for="state-valid">
+                                Email address
+                            </label>
+
+                            <input
+                                id="state-valid"
+                                type="email"
+                                value="alex@example.com"
+                                aria-describedby="valid-message"
+                            >
+
+                            <p id="valid-message">
+                                <strong>Valid:</strong>
+                                Email address is in the expected format.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="state-example state-invalid">
+                        <h3>Invalid state</h3>
+
+                        <div class="field field-error">
+                            <label for="state-invalid">
+                                Email address
+                            </label>
+
+                            <input
+                                id="state-invalid"
+                                type="email"
+                                value="alex.example"
+                                aria-invalid="true"
+                                aria-describedby="invalid-message"
+                            >
+
+                            <p id="invalid-message">
+                                <strong>Error:</strong>
+                                Enter an address in the format name@example.com.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="state-example">
+                        <h3>Disabled state</h3>
+
+                        <div class="field">
+                            <label for="state-disabled">
+                                Registration code
+                            </label>
+
+                            <input
+                                id="state-disabled"
+                                type="text"
+                                value="Not available"
+                                disabled
+                            >
+                        </div>
+
+                        <p class="state-note">
+                            This control is unavailable and cannot receive keyboard
+                            focus or be submitted.
+                        </p>
+                    </div>
                 </div>
 
-                <div class="field field-error">
-                    <label for="error-example">
-                        Email address
-                    </label>
+                <div class="server-error-example">
+                    <h3>Static server-returned error example</h3>
 
-                    <input
-                        id="error-example"
-                        type="email"
-                        value="alex.example"
-                        aria-invalid="true"
-                        aria-describedby="error-message"
-                    >
+                    <div class="error-summary">
+                        <h4>Registration could not be completed</h4>
 
-                    <p id="error-message">
-                        <strong>Error:</strong>
-                        Enter an address in the format name@example.com.
-                    </p>
+                        <p>
+                            The selected workshop session is no longer available.
+                            Your other fictional registration entries have been
+                            preserved.
+                        </p>
+
+                        <p>
+                            Choose another workshop session and submit the
+                            registration again.
+                        </p>
+
+                        <p>
+                            <a href="#server-session">
+                                Choose a different workshop session
+                            </a>
+                        </p>
+                    </div>
+
+                    <div class="field field-error">
+                        <label for="server-session">
+                            Workshop session/date (required)
+                        </label>
+
+                        <select
+                            id="server-session"
+                            required
+                            aria-invalid="true"
+                            aria-describedby="server-session-error"
+                        >
+                            <option value="">
+                                Select a workshop session
+                            </option>
+
+                            <option value="october-17-afternoon" selected>
+                                October 17, 2026 · 2:00 PM
+                            </option>
+
+                            <option value="october-18-morning">
+                                October 18, 2026 · 10:00 AM
+                            </option>
+                        </select>
+
+                        <p id="server-session-error">
+                            <strong>Error:</strong>
+                            The October 17 afternoon session is full. Select another
+                            available session and submit again.
+                        </p>
+                    </div>
                 </div>
-
-                <button type="button" disabled>
-                    Disabled example
-                </button>
             </section>
 
             <section id="documentation">

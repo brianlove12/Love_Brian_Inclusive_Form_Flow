@@ -49,6 +49,42 @@
                 </p>
             </section>
 
+            <section id="requirements">
+                <h2>F4 · Requirements and Validation</h2>
+
+                <p>
+                    Review these requirements before completing the registration form.
+                </p>
+
+                <ul>
+                    <li>
+                        Full name and email address are required.
+                    </li>
+
+                    <li>
+                        Email must be entered in a valid email address format.
+                    </li>
+
+                    <li>
+                        A workshop session and attendance method must be selected.
+                    </li>
+
+                    <li>
+                        Registration requests must include between 1 and 4 attendees.
+                    </li>
+
+                    <li>
+                        Accessibility requests are optional and limited to
+                        300 characters.
+                    </li>
+
+                    <li>
+                        Agreement to the workshop participation guidelines is
+                        required before submission.
+                    </li>
+                </ul>
+            </section>
+
             <form action="" method="get">
                 <fieldset>
                     <legend>F3 · Contact Information</legend>
@@ -77,12 +113,17 @@
                             Email address (required)
                         </label>
 
+                        <p class="help" id="email-help">
+                            Example: alex@example.com
+                        </p>
+
                         <input
                             id="email"
                             name="email"
                             type="email"
                             autocomplete="email"
                             required
+                            aria-describedby="email-help"
                         >
                     </div>
 
